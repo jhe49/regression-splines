@@ -1,0 +1,119 @@
+/* style.css */
+
+/* Reset & base styles */
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8fafc;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+header p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  flex-wrap: wrap;
+}
+.controls label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #334155;
+}
+.controls input, .controls select {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #f1f5f9;
+  font-size: 0.9rem;
+}
+
+/* Plots layout */
+.plots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+.plot-box {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Metrics table */
+#metrics_table {
+  margin: 1rem auto;
+  border-collapse: collapse;
+  width: 60%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+#metrics_table td {
+  border: 1px solid #e2e8f0;
+  padding: 0.6rem 1rem;
+  text-align: center;
+}
+#metrics_table tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* Blog section */
+#blog {
+  padding: 2rem;
+  max-width: 850px;
+  margin: 0 auto;
+}
+#blog h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+#blog h3 {
+  margin-top: 1.5rem;
+  color: #1e293b;
+}
+#blog p {
+  margin-bottom: 1rem;
+}
+#blog ul {
+  padding-left: 1.5rem;
+}
+#blog li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .plots {
+    grid-template-columns: 1fr;
+  }
+}

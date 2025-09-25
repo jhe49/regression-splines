@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regression Splines Demo</title>
+
+  <!-- Math.js must load before app.js so matrix functions are available -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+
+  <!-- Plotly for plots -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Your CSS styling -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Regression Splines and Nonlinear Regression</h1>
+    <p>Interactive demo: fit OLS, polynomial, cubic splines, and natural splines to data</p>
+  </header>
+
+  <!-- Controls -->
+  <section class="controls">
+    <label>
+      Number of Knots
+      <input type="range" id="knots" min="1" max="10" step="1" value="3" />
+    </label>
+
+    <label>
+      Degree
+      <select id="degree">
+        <option value="1">Linear (1)</option>
+        <option value="2">Quadratic (2)</option>
+        <option value="3" selected>Cubic (3)</option>
+      </select>
+    </label>
+
+    <label>
+      Model Type
+      <select id="model_type">
+        <option value="ols">OLS (Linear Regression)</option>
+        <option value="poly">Polynomial Regression</option>
+        <option value="spline">Cubic Spline</option>
+        <option value="natural">Natural Spline</option>
+      </select>
+    </label>
+  </section>
+
+  <!-- Plots -->
+  <section class="plots">
+    <div class="plot-box">
+      <h2>Fitted Curve</h2>
+      <div id="fit_plot"></div>
+    </div>
+    <div class="plot-box">
+      <h2>Residuals</h2>
+      <div id="residual_plot"></div>
+    </div>
+  </section>
+
+  <!-- Metrics -->
+  <section id="metrics">
+    <h2 style="text-align:center;">Model Metrics</h2>
+    <table id="metrics_table"></table>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog">
+    <h2>📖 Blog: Understanding Regression Splines</h2>
+    <p>
+      Regression splines provide a flexible way to model nonlinear relationships between predictors
+      and a response variable. Instead of fitting one global polynomial, splines divide the input
+      space into segments defined by <strong>knots</strong>.
+    </p>
+
+    <h3>Key Concepts</h3>
+    <ul>
+      <li><strong>Knots:</strong> Points where the piecewise polynomials join.</li>
+      <li><strong>Degree:</strong> The order of polynomial used (linear, quadratic, cubic).</li>
+      <li><strong>OLS:</strong> Fits a straight line using least squares.</li>
+      <li><strong>Polynomial regression:</strong> Fits one global polynomial.</li>
+      <li><strong>Cubic spline:</strong> Fits piecewise cubic polynomials joined at knots.</li>
+      <li><strong>Natural spline:</strong> A cubic spline constrained to be linear beyond the boundary knots.</li>
+    </ul>
+
+    <h3>Why Splines?</h3>
+    <p>
+      Splines strike a balance between flexibility and interpretability. Too few knots may underfit
+      the data, while too many can lead to overfitting. Natural splines reduce boundary artifacts
+      by constraining the curve at the edges.
+    </p>
+
+    <h3>Metrics to Compare Models</h3>
+    <p>
+      We use two main metrics:
+    </p>
+    <ul>
+      <li><strong>R²:</strong> Proportion of variance explained by the model.</li>
+      <li><strong>RMSE:</strong> Root Mean Squared Error, a measure of prediction error size.</li>
+    </ul>
+
+    <h3>Try It Yourself</h3>
+    <p>
+      Adjust the <strong>number of knots</strong>, <strong>degree</strong>, and <strong>model type</strong>
+      in the controls above. Watch how the fitted curve and residuals change, and compare the R² and RMSE.
+    </p>
+  </section>
+
+  <!-- app.js must be loaded after math.js and Plotly -->
+  <script src="app.js"></script>
+</body>
+</html>
