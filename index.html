@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Regression Splines Demo</title>
 
-  <!-- Math.js must load before app.js so matrix functions are available -->
+  <!-- Math.js must load before app.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
-
   <!-- Plotly for plots -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
   <!-- Your CSS styling -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -92,9 +90,6 @@
     </p>
 
     <h3>Metrics to Compare Models</h3>
-    <p>
-      We use two main metrics:
-    </p>
     <ul>
       <li><strong>R²:</strong> Proportion of variance explained by the model.</li>
       <li><strong>RMSE:</strong> Root Mean Squared Error, a measure of prediction error size.</li>
@@ -105,9 +100,19 @@
       Adjust the <strong>number of knots</strong>, <strong>degree</strong>, and <strong>model type</strong>
       in the controls above. Watch how the fitted curve and residuals change, and compare the R² and RMSE.
     </p>
+
+    <h3>Compare Cubic vs Natural Splines</h3>
+    <p>
+      Adjust the controls above to see how cubic and natural splines differ on the same dataset.
+      Notice how natural splines reduce extreme curvature near the boundaries.
+    </p>
+    <div class="plot-box">
+      <div id="spline_comparison_plot"></div>
+    </div>
   </section>
 
   <!-- app.js must be loaded after math.js and Plotly -->
   <script src="app.js"></script>
 </body>
 </html>
+

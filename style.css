@@ -1,5 +1,3 @@
-/* style.css */
-
 /* Reset & base styles */
 body {
   font-family: 'Inter', sans-serif;
@@ -117,3 +115,4 @@ header p {
     grid-template-columns: 1fr;
   }
 }
+
